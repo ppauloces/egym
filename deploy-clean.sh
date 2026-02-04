@@ -10,7 +10,7 @@ rm -f database/migrations/2026_02_03_235954_add_aluno_id_to_movimentacoes_table.
 echo "📥 Atualizando repositório..."
 git fetch origin master
 git reset --hard origin/master
-git clean -fdx
+git clean -fd -e .env
 
 echo "📦 Instalando dependências..."
 composer install --no-dev --optimize-autoloader

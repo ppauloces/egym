@@ -24,7 +24,9 @@ jobs:
         run: |
           ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
             cd ${{ secrets.SSH_PATH }}
-            git pull origin master
+            git fetch origin master
+            git reset --hard origin/master
+            git clean -fd
 
             composer install --no-dev --optimize-autoloader
             npm install

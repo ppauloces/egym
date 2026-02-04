@@ -15,9 +15,11 @@
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700" rel="stylesheet" />
 
     <!-- PWA -->
-    <meta name="theme-color" content="#f59e0b">
+    <meta name="theme-color" content="#1EB4F0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/build/manifest.webmanifest">
 
     @vite(['resources/css/app.css', 'resources/js/app.ts'])
 </head>

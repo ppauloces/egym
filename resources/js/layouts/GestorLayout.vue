@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { RouterView } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 import BottomNav from '@/components/gestor/BottomNav.vue'
+import PwaInstallDialog from '@/components/gestor/PwaInstallDialog.vue'
 
 const authStore = useAuthStore()
 
@@ -64,5 +65,8 @@ const primaryColor = computed(() => academia.value?.cor_primaria || '#f59e0b')
 
     <!-- Bottom Navigation -->
     <BottomNav :primary-color="primaryColor" />
+
+    <!-- PWA Install Dialog -->
+    <PwaInstallDialog />
   </div>
 </template>

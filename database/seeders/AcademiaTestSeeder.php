@@ -17,7 +17,7 @@ class AcademiaTestSeeder extends Seeder
         $academia = Academia::updateOrCreate(
             ['id' => 1],
             [
-                'nome' => 'Academia Fitness Plus',
+                 'nome' => 'Academia Fitness Plus',
                 'cnpj' => '12.345.678/0001-90',
                 'telefone' => '(11) 3333-4444',
                 'email' => 'contato@fitnessplus.com',

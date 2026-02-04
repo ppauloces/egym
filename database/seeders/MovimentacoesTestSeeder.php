@@ -32,13 +32,19 @@ class MovimentacoesTestSeeder extends Seeder
 
         $alunos = Aluno::where('academia_id', $academia->id)->get();
         
-        // Buscar categorias
-        $categoriaAluguel = CategoriaFinanceira::where('nome', 'Aluguel')->first();
-        $categoriaAgua = CategoriaFinanceira::where('nome', 'Água')->first();
-        $categoriaLuz = CategoriaFinanceira::where('nome', 'Luz')->first();
-        $categoriaInternet = CategoriaFinanceira::where('nome', 'Internet')->first();
-        $categoriaEquipamentos = CategoriaFinanceira::where('nome', 'Equipamentos')->first();
-        $categoriaProdutos = CategoriaFinanceira::where('nome', 'Venda de Produtos')->first();
+        // Buscar categorias (filtrando por academia_id)
+        $categoriaAluguel = CategoriaFinanceira::where('academia_id', $academia->id)->where('nome', 'Aluguel')->first();
+        $categoriaAgua = CategoriaFinanceira::where('academia_id', $academia->id)->where('nome', 'Água')->first();
+        $categoriaLuz = CategoriaFinanceira::where('academia_id', $academia->id)->where('nome', 'Energia Elétrica')->first();
+        $categoriaInternet = CategoriaFinanceira::where('academia_id', $academia->id)->where('nome', 'Internet')->first();
+        $categoriaEquipamentos = CategoriaFinanceira::where('academia_id', $academia->id)->where('nome', 'Equipamentos')->first();
+        $categoriaProdutos = CategoriaFinanceira::where('academia_id', $academia->id)->where('nome', 'Venda de Produtos')->first();
+
+        // Verificar se todas as categorias foram encontradas
+        if (!$categoriaAluguel || !$categoriaAgua || !$categoriaLuz || !$categoriaInternet || !$categoriaEquipamentos || !$categoriaProdutos) {
+            $this->command->error('❌ Categorias financeiras não encontradas! Execute primeiro: php artisan db:seed --class=CategoriaFinanceiraSeeder');
+            return;
+        }
 
         // ============================================
         // DESPESAS RECORRENTES (Pagas)

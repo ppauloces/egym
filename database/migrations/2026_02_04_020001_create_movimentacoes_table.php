@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('movimentacoes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('academia_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('aluno_id')->nullable()->constrained()->nullOnDelete();
             $table->foreignId('categoria_id')->constrained('categorias_financeiras')->restrictOnDelete();
             $table->enum('tipo', ['entrada', 'saida']);
             $table->string('descricao', 255);

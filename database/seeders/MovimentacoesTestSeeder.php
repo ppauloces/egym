@@ -127,7 +127,7 @@ class MovimentacoesTestSeeder extends Seeder
             'recorrente' => true,
             'pagamento' => [
                 'tipo' => 'vista',
-                'metodo' => 'cartao',
+                'metodo' => 'cartao_credito',
                 'pago' => true,
             ],
         ]);
@@ -179,7 +179,7 @@ class MovimentacoesTestSeeder extends Seeder
             'recorrente' => true,
             'pagamento' => [
                 'tipo' => 'vista',
-                'metodo' => 'cartao',
+                'metodo' => 'cartao_credito',
                 'pago' => false,
             ],
         ]);
@@ -202,7 +202,7 @@ class MovimentacoesTestSeeder extends Seeder
                 'tipo' => 'parcelado',
                 'parcelas' => [
                     'quantidade' => 10,
-                    'metodo' => 'cartao',
+                    'metodo' => 'cartao_credito',
                     'primeira_data' => Carbon::now()->subMonths(2)->format('Y-m-d'),
                 ],
             ],
@@ -249,7 +249,7 @@ class MovimentacoesTestSeeder extends Seeder
                     'recorrente' => false,
                     'pagamento' => [
                         'tipo' => 'vista',
-                        'metodo' => 'cartao',
+                        'metodo' => 'cartao_credito',
                         'pago' => true,
                     ],
                 ]);
